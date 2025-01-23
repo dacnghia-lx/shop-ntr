@@ -1,4 +1,4 @@
-# Deploy Shopping Website lên Firebase Hosting
+# Deploy Website lên Firebase Hosting
 
 ## Bước 1: Thêm Firebase SDK
 
