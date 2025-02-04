@@ -115,6 +115,56 @@ https://www.iconfinder.com/korawan_m
           <div class="cart-buttons-container mt-3 d-flex justify-content-between">
             <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">xoá giỏ</a>
             <a href="#" id="checkout" class="btn btn-outline-secondary text-uppercase btn-pink">thanh toán</a>
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+    const checkoutBtn = document.getElementById('checkout');
+    
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            try {
+                // Get cart items
+                const cartElements = document.querySelectorAll('.cart-item');
+                
+                // Check if cart is empty
+                if (!cartElements || cartElements.length === 0) {
+                    alert('Giỏ hàng trống! Vui lòng thêm sản phẩm vào giỏ hàng.');
+                    e.stopImmediatePropagation();
+                    return;
+                }
+                
+                // If not empty, collect items
+                const cartItems = [];
+                cartElements.forEach(item => {
+                    cartItems.push({
+                        name: item.querySelector('#cart-item-title').textContent,
+                        price: item.querySelector('#cart-item-price').textContent,
+                        image: item.querySelector('#item-img').src
+                    });
+                });
+                
+                // Save and redirect only if cart has items
+                if (cartItems.length > 0) {
+                    localStorage.setItem('cart', JSON.stringify(cartItems));
+                    window.location.href = 'checkout.html';
+                } else {
+                    alert('Giỏ hàng trống! Vui lòng thêm sản phẩm vào giỏ hàng.');
+                    e.stopImmediatePropagation();
+                    return;
+                }
+                
+            } catch (error) {
+                console.error('Error processing cart:', error);
+                alert('Có lỗi xảy ra, vui lòng thử lại!');
+                e.stopImmediatePropagation();
+                return;
+            }
+        });
+    }
+});
+            </script>
           </div>
           <!--end of  cart buttons -->
           <!--  -->
@@ -469,6 +519,41 @@ https://www.iconfinder.com/korawan_m
   </div>
 
 
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          // Get checkout button
+          const checkoutBtn = document.getElementById('checkout');
+          
+          if (checkoutBtn) {
+              checkoutBtn.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  
+                  // Get cart items
+                  const cartItems = [];
+                  document.querySelectorAll('.cart-item').forEach(item => {
+                      cartItems.push({
+                          name: item.querySelector('#cart-item-title').textContent,
+                          price: item.querySelector('#cart-item-price').textContent,
+                          image: item.querySelector('#item-img').src
+                      });
+                  });
+                  
+                  // Save to localStorage
+                  localStorage.setItem('cart', JSON.stringify(cartItems));
+                  
+                  // Redirect to checkout
+                  window.location.href = 'checkout.html';
+              });
+          }
+      });
+      
+      // Handle back navigation
+      window.onpageshow = function(event) {
+          if (event.persisted) {
+              window.location.reload();
+          }
+      };
+      </script>
   <!-- jquery -->
   <script src="js/jquery-3.3.1.min.js"></script>
   <!-- bootstrap js -->
