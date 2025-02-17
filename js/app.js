@@ -22,6 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 })();
 
+// show cart toggle when clicking on navbar "cart" link (mobile)
+(function(){
+    const cartToggle = document.getElementById('cart-toggle');
+    const cart = document.getElementById('cart');
+    if (cartToggle && cart) {
+      cartToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        cart.classList.toggle('show-cart');
+      });
+    }
+  })();
+
 // How much items selected and what total price before selecting any items
 (function(){
     const total = [];
