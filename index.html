@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +8,11 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <!-- main css -->
   <link rel="stylesheet" href="css/style.css">
-
   <!-- font awesome -->
   <link rel="stylesheet" href="css/all.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap&subset=vietnamese" rel="stylesheet">
-  <title>Cart Project</title>
-  <style>
-    /* Custom CSS to adjust navbar spacing */
-    .navbar-nav {
-      margin-left: 0px; /* Remove left margin */
-    }
-    .navbar-brand {
-      margin-right: 0px; /* Adjust this value to change the spacing */
-    }
-  </style>
+  <title>NTR Shop</title>
 </head>
-
 <body>
   <!-- header -->
   <header>
@@ -76,7 +64,7 @@ https://www.iconfinder.com/korawan_m
       <div class="row max-height justify-content-center align-items-center">
         <div class="col-10 mx-auto banner text-center">
           <h1 class="text-capitalize">Welcome to <strong class="banner-title ">NTR shop</strong></h1>
-          <h2 style="font-family: 'Times New Roman', Times, serif;"><strong><i>"Uy tín nằm lên thương hiệu"</i></strong></h2>
+          <h2 style="font-family: 'Times New Roman', Times, serif;"><strong><i>"Uy tín làm nên thương hiệu"</i></strong></h2>
           <a href="#store" class="btn banner-link text-uppercase my-2">Khám phá</a>
 
         </div>
@@ -117,7 +105,7 @@ https://www.iconfinder.com/korawan_m
           <!-- cart buttons -->
           <div class="cart-buttons-container mt-3 d-flex justify-content-between">
             <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">xoá giỏ</a>
-            <a href="#" id="checkout" class="btn btn-outline-secondary text-uppercase btn-pink">thanh toán</a>
+            <a href="#" id="checkout" class="btn btn-outline-secondary text-uppercase btn-black">thanh toán</a>
             <script>
               document.addEventListener('DOMContentLoaded', function() {
     const checkoutBtn = document.getElementById('checkout');
@@ -183,16 +171,22 @@ https://www.iconfinder.com/korawan_m
 
       <div class="row">
         <div class="col-10 mx-auto col-md-6 my-5">
-          <h1 class="text-capitalize">about <strong class="banner-title ">us</strong></h1>
+          <h1 class="text-capitalize">about <strong class="banner-title1">us</strong></h1>
           <p cla  ss="my-4 text-muted w-75">Website bọn em chuyên cung cấp các loại bánh, kẹo cực ngon, (một vài cái) rẻ, phù hợp cho mọi lứa tuổi. Cam kết toàn bộ sản phẩm đều là hàng nhà làm với những nguyên liệu được chọn lọc kỹ càng và đảm bảo an toàn vệ sinh thực phẩm. <br> <br>
             <i style="color: brown;">*friendly reminder: Đây không phải là website thật, chỉ là một website demo được tạo ra với mục đích học tập và nghiên cứu, hoàn toàn không mang tính chất thương mại.</i>
           </p>
-          <a href="#store" class="btn btn-outline-secondary btn-black text-uppercase ">KHÁM PHÁ</a>
+          <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
 
         </div>
         <div class="col-10 mx-auto col-md-6 align-self-center my-5">
           <div class="about-img__container">
-            <img src="img/sweets-1.jpeg" class="img-fluid" alt="">
+            <span class="arrow left-arrow"><i class="fas fa-caret-left"></i></span>
+            <img src="img/sweets-1.jpeg" class="img-fluid" alt="About image" id="about-img">
+            <span class="arrow right-arrow"><i class="fas fa-caret-right"></i></span>
+        </div>
           </div>
         </div>
       </div>
@@ -208,7 +202,7 @@ https://www.iconfinder.com/korawan_m
       <!-- section title -->
       <div class="row">
         <div class="col-10 mx-auto col-sm-6 text-center">
-          <h1 class="text-capitalize">our <strong class="banner-title ">store</strong></h1>
+          <h1 class="text-capitalize">our <strong class="banner-title1">store</strong></h1>
         </div>
       </div>
       <!-- end of section title -->
@@ -492,19 +486,17 @@ https://www.iconfinder.com/korawan_m
               <div class="card-text d-flex justify-content-between text-capitalize">
                 <h5 id="store-item-name">Donut Red Velvet</h5>
                 <h5 class="store-item-value">VNĐ <strong id="store-item-price" class="font-weight-bold">45000</strong></h5>
-
               </div>
             </div>
-
-
           </div>
           <!-- end of card-->
         </div>
         <!--end of single store item-->
-
       </div>
+    </div>
   </section>
   <!--end of store items -->
+  <div id="toastContainer" class="toast-container"></div>
 
 
   <!-- modal-container -->

@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Kaushan+Script");
 
 :root {
-  --mainPink: #ef7998;
-  --mainYellow: rgb(249, 228, 148);
+  --mainPink: #8B4513; 
+  --mainYellow: rgb(245,245,220); 
   --mainWhite: #fff;
   --mainBlack: #000;
-  --yellowTrans: rgba(249, 228, 148, 0.5);
-  --mainGrey: rgb(238, 238, 238);
+  --yellowTrans: rgba(5, 3, 3, 0.267);
+  --mainGrey: rgb(238,238,238);
 }
 
 body {
@@ -15,6 +15,19 @@ body {
   color: var(--mainBlack);
 }
 /* nav links */
+/* Điều chỉnh khoảng cách từ logo đến các mục menu */
+.navbar-brand {
+  margin-right: 200px; /* Thay đổi giá trị này để logo cách nav links phù hợp */
+}
+
+/* Điều chỉnh khoảng cách giữa các mục nav */
+.navbar-nav > li {
+  margin-left: 1rem; /* Thay đổi giá trị này để tạo khoảng cách mong muốn */
+}
+.navbar-nav {
+  margin-left: 0 !important;
+  justify-content: flex-start;
+}
 .navbar-toggler {
   outline: none !important;
 }
@@ -65,42 +78,48 @@ body {
   color: var(--mainWhite);
   margin-top: -4rem;
 }
-.banner-title {
+.banner-title1 {
   color: var(--mainPink);
+  font-size: 4rem;
+}
+.banner-title {
+  color: #fbd666;
   font-size: 4rem;
 }
 .banner-link {
   font-size: 1.5rem;
-  color: var(--mainBlack);
-  border: 0.2rem solid var(--mainBlack);
+  color: var(--mainWhite);
+  border: 0.2rem solid var(--mainWhite);
 }
 .banner-link:hover {
   background: var(--mainBlack);
   color: var(--mainPink);
 }
 /* endo of banner */
+
 /* cart  */
 .cart {
   position: absolute;
-  min-height: 10rem;
-  background: var(--mainWhite);
   top: 0;
   right: 0;
-  transition: all 0.3s ease-in-out;
-  background: rgba(255, 255, 255, 0.5);
-  width: 0;
-  overflow: hidden;
-}
-.show-cart {
   width: 18rem;
-  padding: 2rem 1.5rem;
-  transform: rotateY(-360deg);
+  max-height: 0;
+  overflow-y: hidden; 
+  background: rgba(243, 241, 241, 0.623);
+  padding: 0;
+  transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
 }
+
+.show-cart {
+  max-height: 80vh; 
+  padding: 1rem; 
+}
+
 .cart-item {
   transition: all 2s ease-in-out;
 }
-
 /* end of cart */
+
 /* cart item */
 .cart-item-remove {
   color: var(--mainPink);
@@ -113,7 +132,8 @@ body {
 #cart-item-price {
   font-size: 0.8rem;
 }
-/* cart item */
+/*end of cart item */
+
 /* cart buttons */
 .btn-pink {
   color: var(--mainPink) !important;
@@ -153,7 +173,6 @@ body {
   top: 0;
   left: 0;
 }
-
 /*end of  about */
 
 /* store items */
@@ -191,13 +210,14 @@ body {
   color: --mainYellow;
 }
 /*end of  store items */
+/*search box */
 .search-box {
   background: var(--mainPink);
   color: var(--mainBlack);
 }
+/*end of search box */
 
 /* ligthbox */
-
 .lightbox-container {
   position: fixed;
   top: 0;
@@ -249,4 +269,73 @@ body {
   top: 50%;
   right: 0;
   transform: translateX(60%);
+}
+
+/* image container - about */
+.about-img__container {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--mainBlack);
+  cursor: pointer;
+  opacity: 0.5;              /* mờ hơn */
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.arrow:hover {
+  opacity: 1;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+#about-img {
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+}
+
+.toast-message {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.toast-message.show {
+  opacity: 1;
+}
+
+.social-links {
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  margin-right: 1rem;
+  font-size: 2rem;
+  color: var(--mainBlack);
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--mainPink); 
 }

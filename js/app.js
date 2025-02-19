@@ -11,7 +11,57 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+    const images = [
+        "img/sweets-1.jpeg",
+        "img/cake-2.jpeg",
+        "img/doughnut-3.jpeg"
+    ];
+    let currentIndex = 0;
+    const aboutImg = document.getElementById('about-img');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+
+    leftArrow.addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        aboutImg.src = images[currentIndex];
+    });
+
+    rightArrow.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        aboutImg.src = images[currentIndex];
+    });
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  addToCartButtons.forEach(function(button) {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Logic thêm sản phẩm vào giỏ hàng...
+      
+      // Hiển thị thông báo toast thay vì alert
+      showToast('Sản phẩm đã được thêm vào giỏ hàng!');
+    });
+  });
 });
+function showToast(message) {
+    const toastContainer = document.getElementById('toastContainer');
+    const toast = document.createElement('div');
+    toast.className = 'toast-message';
+    toast.textContent = message;
+    
+    toastContainer.appendChild(toast);
+  
+    // Hiển thị toast
+    setTimeout(function() {
+      toast.classList.add('show');
+    }, 100); // cho phép reflow trước khi thêm class
+  
+    // Ẩn toast sau 3 giây và xóa khỏi DOM
+    setTimeout(function() {
+      toast.classList.remove('show');
+      setTimeout(function() {
+        toastContainer.removeChild(toast);
+      }, 500); // thời gian transition
+    }, 3000);
+  }
 //show cart toggle
 (function(){
     const cartInfo = document.getElementById('cart-info');
@@ -21,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function() {
         cart.classList.toggle('show-cart');
     })
 })();
-
 // show cart toggle when clicking on navbar "cart" link (mobile)
 (function(){
     const cartToggle = document.getElementById('cart-toggle');
@@ -94,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cart = document.getElementById('cart');
                 const total = document.querySelector('.cart-total-container');
                 cart.insertBefore(cartItem, total);
-                alert('Item added to the cart');
+                showToast('Sản phẩm đã được thêm vào giỏ hàng!');
                 showTotals();
             }
         });
