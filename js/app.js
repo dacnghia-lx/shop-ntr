@@ -34,9 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
   addToCartButtons.forEach(function(button) {
     button.addEventListener('click', function(e) {
       e.preventDefault();
-      // Logic thêm sản phẩm vào giỏ hàng...
       
-      // Hiển thị thông báo toast thay vì alert
+      //Show toast
       showToast('Sản phẩm đã được thêm vào giỏ hàng!');
     });
   });
@@ -49,10 +48,10 @@ function showToast(message) {
     
     toastContainer.appendChild(toast);
   
-    // Hiển thị toast
+    //toast
     setTimeout(function() {
       toast.classList.add('show');
-    }, 100); // cho phép reflow trước khi thêm class
+    }, 100);
   
     // Ẩn toast sau 3 giây và xóa khỏi DOM
     setTimeout(function() {
@@ -190,7 +189,7 @@ function showToast(message) {
             }
         });
     }
-
+    //Clear cart button
     function clearCart() {
         const clearCartBtn = document.getElementById('clear-cart');
         clearCartBtn.addEventListener('click', function() {
@@ -201,6 +200,7 @@ function showToast(message) {
             showTotals();
         });
     }
+    //Filter the product with the search bar in the store section
     function filterProducts() {
         const searchInput = document.getElementById('search-item');
         searchInput.addEventListener('input', function() {
@@ -216,6 +216,7 @@ function showToast(message) {
             });
         });
     }
+    //Filter by button
     function filterByCategory() {
         const buttons = document.querySelectorAll('[data-filter]');
         buttons.forEach(function(button) {
@@ -237,7 +238,6 @@ function showToast(message) {
             });
         });
     }
-    
     clearCart();
     filterProducts();
     filterByCategory();
