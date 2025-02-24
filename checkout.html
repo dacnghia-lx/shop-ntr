@@ -236,18 +236,15 @@
               }
           });
       });
-  
       // Form submission
       const form = document.querySelector('form');
       if (form) {
           form.addEventListener('submit', function(e) {
               e.preventDefault();
-  
               if (!qrPayment.checked && !cardPayment.checked) {
                   alert('Vui lòng chọn phương thức thanh toán!');
                   return;
               }
-  
               if (cardPayment.checked) {
                   const cardFields = ['cardname', 'cardnumber', 'expiry', 'cvv'];
                   for (let field of cardFields) {
@@ -258,7 +255,6 @@
                       }
                   }
               }
-  
               // Show success modal
               const successModal = new bootstrap.Modal(document.getElementById('successModal'));
               successModal.show();
